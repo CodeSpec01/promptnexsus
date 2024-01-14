@@ -19,7 +19,7 @@ const MyProfile = () => {
       setPosts(data);
     }
 
-    if(session?.user.id) fetchPosts();
+    if (session?.user.id) fetchPosts();
 
   },[])
 
@@ -32,7 +32,7 @@ const MyProfile = () => {
 
     if (userConfirmation) {
       try {
-        await fetch(`api/prompt/${post._id.toString()}`, {method: 'DELETE'});
+        await fetch(`api/prompt/${post._id.toString()}`, { method: 'DELETE' });
 
         const filteredPost = posts.filter((p) => p._id !== post._id);
 
@@ -43,15 +43,28 @@ const MyProfile = () => {
       }
     }
   };
-  
+
   return (
-    <Profile
-      name='My'
-      desc='Welcome to your personalized profile page'
-      data={posts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
+    <>
+      {session?.user.id ? (
+        <Profile
+          name='My'
+          desc='Welcome to your personalized profile page'
+          data={posts}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+          isUser={true}
+          username={session?.user.name}
+          email={session?.user.email}
+        />
+      ) : (
+        <div className="w-full">
+          <h1 className="head_text text-center blue_gradient font-satoshi">
+            Please Login to see Profile
+          </h1>
+        </div>
+      )}
+    </>
   )
 }
 

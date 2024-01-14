@@ -1,6 +1,6 @@
 'use client';
 
-import { useDebugValue, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 
 const PromptCardList = ({data, handleTagClick}) => {
@@ -18,11 +18,46 @@ const PromptCardList = ({data, handleTagClick}) => {
 }
 
 const Feed = () => {
-  const [searchText, setSearchText] = useState('');
-  const [posts, setPosts] = useState([])
-  const handleSearchChange = (e) => {
+  const [posts, setPosts] = useState([]);
 
-  }
+  const [searchText, setSearchText] = useState('');
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchedResult, setSearchedResult] = useState([]);
+
+  const filterPrompts = (searchText) => {
+    const regex = new RegExp(searchText, 'i');
+    
+    return posts.filter(
+      (item) => 
+      regex.test(item.creator.username) || 
+      regex.test(item.tag) ||
+      regex.test(item.prompt)
+
+    );
+
+  };
+  
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
+
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResult(searchResult);  
+
+      }, 500)
+
+    );
+  };
+
+  const handleTagClick = (tagName) => {
+    setSearchText(tagName);
+
+    const searchResult = filterPrompts(tagName);
+    setSearchedResult(searchResult);
+
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -48,10 +83,16 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList
-      data={posts}
-      handleTagClick= {() => {}}
-      />
+      {/* All Prompts */}
+      {searchText ? (
+        <PromptCardList
+        data={searchedResult}
+        handleTagClick= {handleTagClick}
+        />
+
+      ) : (
+        <PromptCardList data={posts} handleTagClick={handleTagClick}/>
+      )}
     </section>
   )
 }
