@@ -4,7 +4,8 @@ import Provider from '@components/Provider';
 
 export const metadata = {
   title: 'promptopia',
-  description: 'Discover and share AI prompts'
+  description: 'Discover and share AI prompts',
+  <link rel="icon" href="/assessts/images/logo.svg" sizes="any" />
 }
 
 const RootLayout = ({ children }) => {
