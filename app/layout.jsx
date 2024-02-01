@@ -3,7 +3,7 @@ import Navbar from '@components/Navbar';
 import Provider from '@components/Provider';
 
 export const metadata = {
-  title: 'PromptNexsus',
+  title: 'PromptNexus',
   description: 'Discover and share AI prompts',
   // icons: {icon: '/assests/images/logo.svg',}
 }
