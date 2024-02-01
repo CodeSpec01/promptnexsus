@@ -3,9 +3,9 @@ import Navbar from '@components/Navbar';
 import Provider from '@components/Provider';
 
 export const metadata = {
-  title: 'promptopia',
+  title: 'PromptNexsus',
   description: 'Discover and share AI prompts',
-  <link rel="icon" href="/assessts/images/logo.svg" sizes="any" />
+  // icons: {icon: '/assests/images/logo.svg',}
 }
 
 const RootLayout = ({ children }) => {

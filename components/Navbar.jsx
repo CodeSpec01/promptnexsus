@@ -26,11 +26,11 @@ const Navbar = () => {
                 <Image
                     src='/assests/images/logo.svg'
                     alt='Promptopia Logo'
-                    width={30}
-                    height={30}
+                    width={300}
+                    height={300}
                     className="object-contain"
                 />
-                <p className="logo_text">Promptopia</p>
+                {/* <p className="logo_text">PromptNexsus</p> */}
             </Link>
 
             {/* Desktop Navigation */}
