@@ -2,6 +2,7 @@ import { connectToDB } from "@utils/database";
 import { Prompt } from "@models/prompt.models";
 
 export const GET = async (req) => {
+    noStore();
     try {
         await connectToDB();
 
