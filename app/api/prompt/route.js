@@ -1,5 +1,6 @@
 import { connectToDB } from "@utils/database";
 import { Prompt } from "@models/prompt.models";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const GET = async (req) => {
     noStore();
