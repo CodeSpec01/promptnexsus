@@ -60,7 +60,7 @@ const MyProfile = () => {
       ) : (
         <div className="w-full">
           <h1 className="head_text text-center blue_gradient font-satoshi">
-            Please Login to see Profile
+            Please Login to see your Profile
           </h1>
         </div>
       )}

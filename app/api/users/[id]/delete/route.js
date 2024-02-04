@@ -13,7 +13,6 @@ export const DELETE = async (req, { params }) => {
         return new Response('Prompt deleted successfully', { status: 200 });
 
     } catch (error) {
-        console.log('ran into this error')
         return new Response('Failed to delete Prompt', { status: 500 })
 
     }

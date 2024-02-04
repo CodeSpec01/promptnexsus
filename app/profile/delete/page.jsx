@@ -26,8 +26,6 @@ const DeleteUser = () => {
 
         try {
 
-            console.log('running this try block')
-            console.log(session?.user.id)
             const response = await fetch(`/api/users/${session?.user.id}/delete`, { method: 'DELETE' });
 
             if (response.ok) {
