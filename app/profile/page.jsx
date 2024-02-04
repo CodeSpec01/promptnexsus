@@ -56,6 +56,7 @@ const MyProfile = () => {
           isUser={true}
           username={session?.user.name}
           email={session?.user.email}
+          image={session?.user.image}
         />
       ) : (
         <div className="w-full">

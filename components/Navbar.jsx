@@ -25,7 +25,7 @@ const Navbar = () => {
             <Link href='/' className="flex gap-2 flex-center">
                 <Image
                     src='/assests/images/logo.svg'
-                    alt='Promptopia Logo'
+                    alt='Promptnexus Logo'
                     width={300}
                     height={300}
                     className="object-contain"

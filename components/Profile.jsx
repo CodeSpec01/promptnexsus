@@ -1,23 +1,32 @@
 import { useRouter } from "next/navigation"
 import PromptCard from "./PromptCard"
+import Image from "next/image";
 
-const Profile = ({ name, desc, data, handleEdit, handleDelete, isUser, username, email }) => {
+const Profile = ({ name, desc, data, handleEdit, handleDelete, isUser, username, email, image }) => {
 
   const router = useRouter();
   const handledeleteUser = () => {
     router.push('/profile/delete')
   }
-  
+
   return (
     <section className="w-full">
       <h1 className="head_text text-left blue_gradient">{name} Profile</h1>
-      
+
       <p className="desc text-left">
         {desc}
       </p>
 
       {isUser && (
         <div className="flex-center flex-col gap-4 mt-10 bg-purple-300/30 py-20 rounded-lg backdrop-blur-3xl">
+          <Image
+            src={image}
+            alt='user image'
+            width={60}
+            height={60}
+            className="rounded-full object-contain"
+          />
+
           <div className="flex-center gap-2">
             <h4 className="text-3xl font-bold font-satoshi">Username:</h4>
             <span className='font-bold text-2xl font-satoshi blue_gradient'>{username}</span>

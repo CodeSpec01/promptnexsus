@@ -42,7 +42,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
           <div className="flex flex-col" onClick={sendToProfile}>
             <h3>
-              {post.creator?.username}
+              {post.creator?.username.replace("_"," ")}
             </h3>
 
             <p className="font-inner text-sm text-gray-500">
@@ -54,6 +54,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           <div className="copy_btn absolute top-6 right-2" onClick={() => handleCopy()}>
             <Image
               src={copied === post.prompt ? '/assests/icons/tick.svg' : '/assests/icons/copy.svg'}
+              alt= "copy button"
               height={12}
               width={12}
             />
